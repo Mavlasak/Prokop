@@ -1,0 +1,48 @@
+{block content}
+<h1>VKLÁDÁNÍ ČLÁNKU:</h1><br>
+{control articleForm}
+<br><h1>FILTR:</h1><br>
+{control findArticleForm}
+<br>
+
+{snippet articleTable}
+
+    <table class="table tablesorter" id="myTable">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Nadpis</th>
+                <th scope="col">Obsah</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Datum zveřejnění</th>
+                <th scope="col">Obrázek</th>
+            </tr>
+        </thead>
+        <tbody>
+            {if isset($Articles)}  
+                {foreach $Articles as $Article}  
+                    <tr>
+                        <td>{$Article->title}</td>
+                        <td>{$Article->content}</td>
+                        <td>{$Article->author}</td>
+                        <td>{$Article->created_at|date:'j.n.Y'}</td>
+                        <td><img src="{$basePath}/pictures/{$Article->picture}" width="50" height="50"></td>
+                    </tr>
+                {/foreach}
+            {/if} 
+        </tbody>
+    </table>   
+
+    {block scripts}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{$basePath}/js/jquery.tablesorter.js"></script> 
+    <script>
+
+        $(document).ready(function ()
+        {
+            $("#myTable").tablesorter();
+        }
+        );
+    </script>      
+    {/block}  
+{/snippet} 
+{/block}
