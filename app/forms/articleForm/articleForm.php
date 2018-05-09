@@ -27,7 +27,7 @@ class ArticleForm extends Control
     public function render()
     {
         $this->template->getLatte()->addProvider('formsStack', [$this["articleForm"]]);
-        $this->template->setFile(__DIR__ . '/ArticleForm.latte');   
+        $this->template->setFile(__DIR__ . '/articleForm.latte');   
         $this->template->form = $this['articleForm'];
         $this->template->render();
     }

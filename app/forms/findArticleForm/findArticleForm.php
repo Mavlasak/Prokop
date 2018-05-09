@@ -29,7 +29,7 @@ class FindArticleForm extends Control
     public function render()
     {
         $this->template->getLatte()->addProvider('formsStack', [$this["findArticleForm"]]);
-        $this->template->setFile(__DIR__ . '/FindArticleForm.latte');   
+        $this->template->setFile(__DIR__ . '/findArticleForm.latte');   
         $this->template->form = $this['findArticleForm'];
         $this->template->render();
     }
